@@ -50,33 +50,47 @@ class Build:
 
 
     def print_build_summary(self):
-        """
-        Print a summary of the build, its cards, and SPECIAL points.
-        """
+        '''
+        Print a summary of the Build details.
+        '''
         print(f"\nBuild Name: {self.name}")
 
-        print("\nNormal Perk Cards:")
-        if self.normal_perk_cards:
-            for card in self.normal_perk_cards:
-                print(f"  - {card.name} ({card.stars} stars)")
-        else:
-            print("  (None)")
+        print("\nSPECIAL Points:")
 
+        # Group normal perk cards by SPECIAL
+        special_to_cards = {letter: [] for letter in "S.P.E.C.I.A.L".replace(".", "")}
+
+        for card in self.normal_perk_cards:
+            if card.special:
+                special_to_cards[card.special].append(card)
+
+        # Color mapping
+        color_map = {
+            'S': Fore.RED,
+            'P': Fore.CYAN,
+            'E': Fore.GREEN,
+            'C': Fore.MAGENTA,
+            'I': Fore.YELLOW,
+            'A': Fore.WHITE,
+            'L': Fore.LIGHTMAGENTA_EX
+        }
+
+        # Print SPECIAL with related cards
+        for special in "S.P.E.C.I.A.L".replace(".", ""):
+            color = color_map.get(special, Fore.WHITE)
+            print(f"  {color}{special}: {self.special_points[special]}{Style.RESET_ALL}")
+
+            if special_to_cards[special]:
+                for card in special_to_cards[special]:
+                    print(f"    ({card.stars}) {card.name}")
+
+        # Print Legendary Perk Cards separately
         print("\nLegendary Perk Cards:")
         if self.legendary_perk_cards:
             for card in self.legendary_perk_cards:
                 print(f"  - {card.name} ({card.stars} stars)")
         else:
             print("  (None)")
-
-        print("\nSPECIAL Points:")
-        print(f"  {Fore.RED}S: {self.special_points['S']}{Style.RESET_ALL}")
-        print(f"  {Fore.CYAN}P: {self.special_points['P']}{Style.RESET_ALL}")
-        print(f"  {Fore.GREEN}E: {self.special_points['E']}{Style.RESET_ALL}")
-        print(f"  {Fore.MAGENTA}C: {self.special_points['C']}{Style.RESET_ALL}")
-        print(f"  {Fore.YELLOW}I: {self.special_points['I']}{Style.RESET_ALL}")
-        print(f"  {Fore.WHITE}A: {self.special_points['A']}{Style.RESET_ALL}")
-        print(f"  {Fore.LIGHTMAGENTA_EX}L: {self.special_points['L']}{Style.RESET_ALL}")
 
 
     def save_to_file(self, filepath):
