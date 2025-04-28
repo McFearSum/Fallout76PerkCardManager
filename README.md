@@ -1,18 +1,33 @@
 # Fallout76 Perk Card Manager
 
-A Vault-Tec inspired CLI application for managing Perk Cards and Builds in Fallout 76.  
-Built in Python 3.12, featuring save/load of Decks and Builds with JSON persistence.
+Version: v0.3.1  
+Status: CLI MVP Complete
+
+---
+## Project Description
+
+Manage your Fallout76 perk cards, builds, and decks — the Vault-Tec way!  
+Easily create builds, save/load decks, colorized SPECIAL attribute handling, and future-proof expansion for legendary perks.
+
+---
 
 ## Features
-- Create and Save PerkCard Decks
-- Create and Save Character Builds
-- Load and Edit Decks and Builds
-- Persistent storage (local JSON files)
-- Interactive CLI menu
 
-## Status
-- Version: v0.2.0 (MVP complete)
-- Future plans: Color CLI, auto-fetch perk cards, card merging system.
+- Create and save Normal Perk Card Decks
+- Create and save Builds with cards grouped under SPECIAL attributes
+- Colorized SPECIAL points and associated Perk Cards
+- Load existing decks and builds from `.json` files
+- Easy to use Command Line Interface (CLI)
+- Organized project structure (cards/, builds/, decks/, utils/, manager/)
+- Clean JSON serialization for full portability
+- Professional Git versioning and tags (`v0.2.0`, `v0.2.1`, `v0.3.1`)
 
-## License
+---
+
+## How to Run
+
+1. Clone the repository:
+   bash
+   git clone https://github.com/McFearSum/Fallout76PerkCardManager.git
+
 MIT License (optional - add later)
