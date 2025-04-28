@@ -1,0 +1,19 @@
+{
+    "name": "Bloodied Build",
+    "normal_perk_cards": [
+        [
+            "Rifleman",
+            1
+        ]
+    ],
+    "legendary_perk_cards": [],
+    "special_points": {
+        "S": 0,
+        "P": 1,
+        "E": 0,
+        "C": 0,
+        "I": 0,
+        "A": 0,
+        "L": 0
+    }
+}

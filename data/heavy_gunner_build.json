@@ -1,0 +1,19 @@
+{
+    "name": "Heavy Gunner",
+    "normal_perk_cards": [
+        [
+            "BigShooter",
+            5
+        ]
+    ],
+    "legendary_perk_cards": [],
+    "special_points": {
+        "S": 0,
+        "P": 0,
+        "E": 0,
+        "C": 0,
+        "I": 0,
+        "A": 0,
+        "L": 0
+    }
+}
