@@ -35,9 +35,13 @@ def create_new_build():
     print(f"\nBuild '{build_name}' created successfully!")
 
     while True:
-        add_card = input("\nWould you like to add a Normal PerkCard to the Build now? (y/n): ").strip().lower()
+        add_card = input(
+            "\nWould you like to add a Normal PerkCard to the Build now? (y/n): "
+        ).strip().lower()
+
         if add_card == 'y':
             card_name = input("Enter PerkCard name: ").strip()
+
             try:
                 stars = int(input("Enter number of stars (1-5): ").strip())
                 if stars < 1 or stars > 5:
@@ -47,13 +51,24 @@ def create_new_build():
                 print("Invalid input. Please enter a number.")
                 continue
 
-            perk_card = PerkCard(name=card_name, stars=stars, card_type="normal")
+            special = input("Enter SPECIAL category (S/P/E/C/I/A/L): ").strip().upper()
+            if special not in "SPECIAL":
+                print("Invalid SPECIAL category. Must be one of S, P, E, C, I, A, L.")
+                continue
+
+            perk_card = PerkCard(
+                name=card_name,
+                stars=stars,
+                card_type="normal",
+                special=special
+            )
             build.add_normal_card(perk_card)
-            print(f"Added {stars}-star '{card_name}' to the Build.")
+            print(f"Added {stars}-star '{card_name}' ({special}) to the Build.")
         elif add_card == 'n':
             break
         else:
             print("Invalid input. Please enter 'y' or 'n'.")
+
 
     save = input("\nWould you like to save this Build to file? (y/n): ").strip().lower()
     if save == 'y':
@@ -118,7 +133,7 @@ def load_build():
     except FileNotFoundError:
         print(f"\nError: Build file '{filepath}' not found.")
     except Exception as e:
-        print(f"\nAn unexpected error occurred: {e}")
+        print(f"\nUnexpected error occurred: {e.__class__.__name__}: {e}")
 
 
 def load_deck():
@@ -135,7 +150,7 @@ def load_deck():
     except FileNotFoundError:
         print(f"\nError: Deck file '{filepath}' not found.")
     except Exception as e:
-        print(f"\nAn unexpected error occurred: {e}")
+        print(f"\nUnexpected error occurred: {e.__class__.__name__}: {e}")
 
 
 def main():

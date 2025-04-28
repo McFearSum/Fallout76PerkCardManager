@@ -1,10 +1,11 @@
 {
-    "name": "Bloodied Build",
+    "name": "Bloodied",
     "normal_perk_cards": [
-        [
-            "Rifleman",
-            1
-        ]
+        {
+            "name": "Rifleman",
+            "stars": 1,
+            "special": "P"
+        }
     ],
     "legendary_perk_cards": [],
     "special_points": {
