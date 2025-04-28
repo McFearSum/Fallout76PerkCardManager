@@ -17,7 +17,7 @@ Easily create builds, save/load decks, colorized SPECIAL attribute handling, and
 - Create and save Normal Perk Card Decks
 - Create and save Builds with cards grouped under SPECIAL attributes
 - Colorized SPECIAL points and associated Perk Cards
-- Load existing decks and builds from `.json` files
+- Load, save, and manage decks and builds from `.json` files
 - Easy to use Command Line Interface (CLI)
 - Organized project structure (`cards/`, `builds/`, `decks/`, `utils/`, `manager/`)
 - Clean JSON serialization for full portability
