@@ -3,6 +3,10 @@ builds class
 """
 import json
 import os
+from colorama import init, Fore, Style
+
+# Initialize colorama
+init(autoreset=True)
 
 class Build:
     """
@@ -50,21 +54,29 @@ class Build:
         Print a summary of the build, its cards, and SPECIAL points.
         """
         print(f"\nBuild Name: {self.name}")
-        print("Normal Perk Cards:")
-        if not self.normal_perk_cards:
+
+        print("\nNormal Perk Cards:")
+        if self.normal_perk_cards:
+            for card in self.normal_perk_cards:
+                print(f"  - {card.name} ({card.stars} stars)")
+        else:
             print("  (None)")
-        for card in self.normal_perk_cards:
-            print(f"  - {card.name} ({card.stars} stars)")
 
         print("\nLegendary Perk Cards:")
-        if not self.legendary_perk_cards:
+        if self.legendary_perk_cards:
+            for card in self.legendary_perk_cards:
+                print(f"  - {card.name} ({card.stars} stars)")
+        else:
             print("  (None)")
-        for card in self.legendary_perk_cards:
-            print(f"  - {card.name} ({card.stars} stars)")
 
         print("\nSPECIAL Points:")
-        for attr, points in self.special_points.items():
-            print(f"  {attr}: {points}")
+        print(f"  {Fore.RED}S: {self.special_points['S']}{Style.RESET_ALL}")
+        print(f"  {Fore.CYAN}P: {self.special_points['P']}{Style.RESET_ALL}")
+        print(f"  {Fore.GREEN}E: {self.special_points['E']}{Style.RESET_ALL}")
+        print(f"  {Fore.MAGENTA}C: {self.special_points['C']}{Style.RESET_ALL}")
+        print(f"  {Fore.YELLOW}I: {self.special_points['I']}{Style.RESET_ALL}")
+        print(f"  {Fore.WHITE}A: {self.special_points['A']}{Style.RESET_ALL}")
+        print(f"  {Fore.LIGHTMAGENTA_EX}L: {self.special_points['L']}{Style.RESET_ALL}")
 
 
     def save_to_file(self, filepath):
