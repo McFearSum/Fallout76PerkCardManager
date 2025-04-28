@@ -29,5 +29,14 @@ Easily create builds, save/load decks, colorized SPECIAL attribute handling, and
 1. Clone the repository:
    bash
    git clone https://github.com/McFearSum/Fallout76PerkCardManager.git
+   
+2. Create and activate a virtual environment:
+   python -m venv venv
 
+3. Install dependencies:
+   pip install -r requirements.txt
+
+4. Launch the application:
+   python main.py
+   
 MIT License (optional - add later)
